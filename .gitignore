@@ -1,0 +1,8 @@
+# ignore symlinks on subprojects
+apps/**/libs/
+python_modules/
+
+__pycache__
+
+# Env variables
+env.json

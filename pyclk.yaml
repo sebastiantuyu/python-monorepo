@@ -1,0 +1,14 @@
+project:
+  python-monorepo
+env_folder:
+  path: /venv
+hooks:
+  install: 
+    - ./scripts/install
+services:
+  lambda-dummy:
+    path: apps/lambda-dummy
+  lambda-jtc:
+    path: apps/lambda-json-to-csv
+  api-backend:
+    path: apps/api-backend

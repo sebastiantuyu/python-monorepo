@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+export APP_RELATIVE_PATH=$(pwd)
+export MONOREPO_PATH=$APP_RELATIVE_PATH/../../
+
+onFail() {
+  echo "Error: $1"
+  exit 1
+}
+
+pushd $MONOREPO_PATH
+  docker build \
+    -f $APP_RELATIVE_PATH/Dockerfile . \
+    -t lambda-csv-to-json \
+      || onFail "Docker creation failed" 10
+popd

@@ -1,0 +1,9 @@
+project:
+  api-backend
+version:
+  0.0.1
+author:
+  name: Sebastian Tuyu
+  contact: dev@sebastiantuyu.com
+scripts:
+  run: python3 ./app.py

@@ -1,0 +1,10 @@
+project:
+  python-monorepo
+version:
+  0.0.1
+author:
+  name: Sebastian Tuyu
+  contact: dev@sebastiantuyu.com
+packages:
+  - aws-sam-cli==1.72.0
+  - Flask==2.0.3

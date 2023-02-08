@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+export APP_RELATIVE_PATH=$(pwd)
+export MONOREPO_PATH=$APP_RELATIVE_PATH/../../
+export FOLDER_NAME=$(basename $APP_RELATIVE_PATH)
+
+onFail() {
+  echo "Error: $1"
+  exit 1
+}
+
+pushd $MONOREPO_PATH
+  docker build \
+    -f $APP_RELATIVE_PATH/Dockerfile . \
+    -t $FOLDER_NAME \
+    --build-arg APP_NAME=$FOLDER_NAME \
+      || onFail "Docker creation failed" 10
+popd

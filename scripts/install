@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+#########################################
+#                                       #
+#   Generate symbolic links for shared  #
+#   dependencies                        #
+#                                       #
+#########################################
+
+export TASK_ROOT=${LAMBDA_TASK_ROOT:-$(pwd)}
+
+echo "Linking project..."
+
+for d in $TASK_ROOT/apps/*/ ; do
+  rm -rf $d/libs
+  mkdir $d/libs
+  ln -s $TASK_ROOT/libs/* $d/libs/
+done
+
+echo "Done linking project"

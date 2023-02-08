@@ -1,0 +1,29 @@
+#! /usr/bin/env bash
+#########################################
+#                                       #
+#       Init python-monorepo            #
+#                                       #
+#########################################
+
+
+for a in curl unzip; do
+    if [ -z "$(which $a)" ]; then
+        echo "Command \"$a\" not found."
+        exit 1
+    fi
+done
+
+echo ""
+echo "Installing python-monorepo"
+echo ""
+
+pip install pyyaml
+pushd ~
+  curl -LSs -O https://github.com/sebastiantuyu/pyclk/archive/refs/heads/main.zip
+  unzip main.zip
+  rm -f ~/main.zip
+  mv pyclk-main pyclk
+  pushd ./pyclk
+    sudo python3 setup.py -q develop
+  popd
+popd

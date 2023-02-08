@@ -1,0 +1,10 @@
+project:
+  lambda-json-to-csv
+version:
+  0.0.1
+author:
+  name: Sebastian Tuyu
+  contact: dev@sebastiantuyu.com
+scripts:
+  run: ./scripts/run
+  build: ./scripts/build
